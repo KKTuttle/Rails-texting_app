@@ -5,6 +5,7 @@ class ContactBooksController < ApplicationController
   end
 
   def show
+
     @contact_book = current_user.contact_books.find(params[:id])
 
   end

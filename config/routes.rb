@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :contact_books do
-    resources :contacts
+    resources :contacts do
+      resources :msgs
+    end
   end
 
 root :to => 'contact_books#index'

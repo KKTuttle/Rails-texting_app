@@ -1,0 +1,5 @@
+<%= form_for [@contact_book, @contact, @msg] do |f| %>
+  <%=f.label :body, "Message" %>
+  <%=f.text_field :body %>
+  <%=f.submit %>
+<%end%>

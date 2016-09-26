@@ -2,7 +2,7 @@
 <%if @contact_book.contacts.any?%>
   <h2>Saved Contacts</h2>
   <% @contact_book.contacts.each do |contact|%>
-    <li><%=contact.name%>, Phone: <%= contact.phone%></li>
+    <li><%= link_to contact.name, contact_book_contact_path(@contact_book, contact)%>, Phone: <%= contact.phone%></li>
     <%end%>
   <%end%>
 <%= link_to "Add a new contact", new_contact_book_contact_path(@contact_book)%>

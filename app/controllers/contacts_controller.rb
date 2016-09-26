@@ -1,18 +1,20 @@
 class ContactsController < ApplicationController
   def show
-
+    @contact_book = current_user.contact_books.find(params[:contact_book_id])
+    @contact = @contact_book.contacts.find(params[:id])
+    @msg = @contact.msgs.new
   end
 
   def new
-    @contact_book = ContactBook.find(params[:contact_book_id])
+    @contact_book = current_user.contact_books.find(params[:contact_book_id])
     @contact = @contact_book.contacts.new
   end
 
   def create
-    @contact_book = ContactBook.find(params[:contact_book_id])
+    @contact_book = current_user.contact_books.find(params[:contact_book_id])
     @contact = @contact_book.contacts.new(contact_params)
     if @contact.save
-      redirect_to root_path
+      redirect_to contact_book_path(@contact_book)
     else
       render:new
     end
@@ -23,6 +25,13 @@ class ContactsController < ApplicationController
   end
 
   def update
+    @contact_book = current_user.contact_books.find(params[:contact_book_id])
+    @contact = @contact_book.contacts.find(params[:id])
+    if @contact.update(contact_params)
+      redirect_to contact_book_contact_path(@contact_book, @contact)
+    else
+      render:edit
+    end
   end
 
   def delete
