@@ -1,0 +1,7 @@
+<%if current_user.contact_books.any?%>
+
+  <h2>Saved phone</h2>
+  <% current_user.contact_books.each do |phone_book|%>
+    <li><%= link_to phone_book.name, contact_book_path(phone_book)%></li>
+  <%end%>
+<%end%>
