@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :contact do
-    name "Test Name"
+    name Faker::Name.name
     phone "15005550006"
+    contact_book
   end
 end

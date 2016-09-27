@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :contact_book do
+    # name Faker::Book.genre
     name "MyContactBook"
-    profile
-    contact
+    user
   end
 end

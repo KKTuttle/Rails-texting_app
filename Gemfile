@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'omniauth-facebook'
+gem 'omniauth-strava'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
@@ -49,6 +52,8 @@ group :development, :test do
   gem 'poltergeist'
   gem 'phantomjs', :require => 'phantomjs/poltergeist'
   gem 'database_cleaner'
+
+  gem 'faker', git: 'git@github.com:stympy/faker.git'
 end
 
 group :development do
